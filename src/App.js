@@ -1,23 +1,31 @@
-import React, { useState } from 'react'
-import ReactMarkdown from 'react-markdown'
+import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 
-function App() {
-  const [markdown, setMarkdown] = useState('# markdown preview')
-
+function App ()
+{
+  const [ markdown, setMarkdown ] = useState( '# This is heading 1' );
   return (
-    <main>
-      <section className='markdown'>
+    <main className="markdown">
+      <section>
+        <div className="title">
+          <p>Markdown Editor</p>
+          <a
+            href="https://www.markdownguide.org/cheat-sheet"
+            target="_blank" rel="noreferrer"
+            className="link"
+          >Guide</a>
+        </div>
         <textarea
           className='input'
-          value={markdown}
-          onChange={(e) => setMarkdown(e.target.value)}
+          value={ markdown }
+          onChange={ ( e ) => setMarkdown( e.target.value ) }
         ></textarea>
-        <article className='result'>
-          <ReactMarkdown>{markdown}</ReactMarkdown>
-        </article>
+      </section>
+      <section>
+        <p className="title">Markdown Preview</p>
+        <ReactMarkdown className="result">{ markdown }</ReactMarkdown>
       </section>
     </main>
-  )
+  );
 }
-
-export default App
+export default App;
